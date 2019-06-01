@@ -1,5 +1,10 @@
 module.exports = {
   plugins: {
-    autoprefixer: {}
+    autoprefixer: {},
+    'postcss-px2rem-exclude': {
+      remUnit: 37.5,
+      exclude: /node_modules/i,
+      selectorBlackList: ['font-size']
+    }
   }
 }
