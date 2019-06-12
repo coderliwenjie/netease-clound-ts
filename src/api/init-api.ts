@@ -5,7 +5,7 @@ import Vue from 'vue'
 Vue.use(Toast)
 
 const options = {
-  baseURL: 'http://locahost:3000',
+  baseURL: 'http://localhost:3000',
   timeOut: 1000,
 }
 const instance =  axios.create(options)
@@ -17,7 +17,7 @@ instance.interceptors.request.use((config: any): any => {
 })
 instance.interceptors.response.use((response: any): any => {
   const res = response.data
-  if (res.code && res.code !== 0) {
+  if (res.code && res.code !== 200) {
     Toast(`${res.code}:${res.message}`)
     return Promise.reject(res.message)
   }

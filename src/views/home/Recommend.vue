@@ -8,15 +8,17 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
 import { Action } from 'vuex-class'
-import { personalized } from '@/api';
-export default Vue.extend({
-  // todo
-  created() {
-    this.$store.dispatch('personalized')
-  },
-})
+import { personalized } from '@/api'
+import { Component, Vue, Prop } from 'vue-property-decorator'
+
+@Component
+export default class Recommend extends Vue {
+  @Prop() private recommend!: {}
+  private mounted() {
+    console.log(this.recommend)
+  }
+}
 </script>
 
 <style lang="scss" scoped>

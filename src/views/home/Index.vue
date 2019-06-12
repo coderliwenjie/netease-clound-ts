@@ -6,7 +6,7 @@
     </div>
     <van-tabs title-active-color="#DD001B" :swipeable="true">
       <van-tab title="推荐音乐">
-        <recommend></recommend>
+        <recommend v-if='recommend' :recommend='recommend'></recommend>
       </van-tab>
       <van-tab title="热歌榜">热歌榜</van-tab>
       <van-tab title="搜索">搜索</van-tab>
@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { Action, State } from 'vuex-class'
 import {Tab, Tabs} from 'vant'
 import Recommend from './Recommend.vue'
 
@@ -26,7 +27,21 @@ import Recommend from './Recommend.vue'
     Recommend,
   },
 })
+
 export default class Home extends Vue {
+  @Action private personalized!: () => void
+  @State private personalizedData!: {}
+  private recommend!: {}
+  private data() {
+    return {
+      recommend: '',
+    }
+  }
+  private async created() {
+    await this.personalized()
+    this.recommend = this.$store.state.personalizedData
+    console.log(this.recommend)
+  }
 }
 </script>
 <style lang="scss" scoped>
