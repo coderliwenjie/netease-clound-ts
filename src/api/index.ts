@@ -6,6 +6,13 @@ const personalized = () => {
   }
   return api._get(req)
 }
-export {
+const newSong = () => {
+  const req = {
+    url: '/personalized/newsong',
+  }
+  return api._get(req)
+}
+export default {
   personalized,
+  newSong,
 }

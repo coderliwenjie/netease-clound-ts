@@ -4,60 +4,66 @@
       <span class="home-head-lf">网易云音乐</span>
       <span class="home-head-fr">登录</span>
     </div>
-    <van-tabs title-active-color="#DD001B" :swipeable="true">
+    <van-tabs title-active-color="#DD001B" :swipeable="true" @change="change">
       <van-tab title="推荐音乐">
-        <recommend v-if='recommend' :recommend='recommend'></recommend>
       </van-tab>
       <van-tab title="热歌榜">热歌榜</van-tab>
       <van-tab title="搜索">搜索</van-tab>
     </van-tabs>
+    <div class="home-view">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Action, State } from 'vuex-class'
+import { Action } from 'vuex-class'
 import {Tab, Tabs} from 'vant'
-import Recommend from './Recommend.vue'
 
 @Component({
   components: {
     [Tabs.name]: Tabs,
     [Tab.name]: Tab,
-    Recommend,
+  },
+  methods: {
+    change(index) {
+      this.$router.push({
+        path: `/home/${this.$data.tabs[index]}`,
+      })
+    },
   },
 })
 
 export default class Home extends Vue {
-  @Action private personalized!: () => void
-  @State private personalizedData!: {}
-  private recommend!: {}
+  private tabs!: ['reommendMusic']
   private data() {
     return {
-      recommend: '',
+      tabs: ['recommendMusic', 'hotMusic', 'newMusic'],
     }
   }
   private async created() {
-    await this.personalized()
-    this.recommend = this.$store.state.personalizedData
-    console.log(this.recommend)
+    this.$router.push({
+      path: `/home/${this.tabs[0]}`,
+    })
   }
 }
 </script>
 <style lang="scss" scoped>
 .home {
-
   .home-head {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 64px;
     padding: 16px;
-    box-sizing: border-box;
     font-size: 18px; /* no */
     font-weight: 600;
-    background-color: #d43c33;
     color: #fff;
+    background-color: #d43c33;
 
     .home-head-fr {
       display: inline-block;
