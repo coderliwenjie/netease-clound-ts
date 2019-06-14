@@ -7,7 +7,7 @@
     <van-tabs title-active-color="#DD001B" :swipeable="true" @change="change">
       <van-tab title="推荐音乐">
       </van-tab>
-      <van-tab title="热歌榜">热歌榜</van-tab>
+      <van-tab title="热歌榜"></van-tab>
       <van-tab title="搜索">搜索</van-tab>
     </van-tabs>
     <div class="home-view">

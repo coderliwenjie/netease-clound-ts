@@ -4,15 +4,28 @@ const personalized = () => {
   const req = {
     url: '/personalized',
   }
-  return api._get(req)
+  return api._get(req).then((res) => {
+    return res.data
+  })
 }
 const newSong = () => {
   const req = {
     url: '/personalized/newsong',
   }
-  return api._get(req)
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
+const hotRank = () => {
+  const req = {
+    url: '/top/list?idx=1',
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
 }
 export default {
   personalized,
   newSong,
+  hotRank,
 }

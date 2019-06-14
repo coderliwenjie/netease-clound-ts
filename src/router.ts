@@ -16,6 +16,10 @@ export default new Router({
           path: 'recommendMusic',
           component: () => import('./views/recommend-music/Index.vue'),
         },
+        {
+          path: 'hotMusic',
+          component: () =>  import('./views/hot-music/Index.vue'),
+        },
       ],
     },
     {
