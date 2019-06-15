@@ -20,6 +20,10 @@ export default new Router({
           path: 'hotMusic',
           component: () =>  import('./views/hot-music/Index.vue'),
         },
+        {
+          path: 'search',
+          component: () => import('./views/search/Index.vue'),
+        },
       ],
     },
     {

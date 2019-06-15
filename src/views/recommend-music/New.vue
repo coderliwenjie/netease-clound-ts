@@ -62,7 +62,7 @@ export default class New extends Vue {
           align-items: center;
           justify-content: space-between;
           padding: 6px 0;
-          border-bottom: 1px solid #ccc; /* no */
+          border-bottom: 1px solid #eee; /* no */
 
           .li-lf {
             color: #333;

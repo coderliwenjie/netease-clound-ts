@@ -17,6 +17,11 @@ const actions: ActionTree<any, any> = {
       commit('NEWSONG', res)
     }
   },
+  async hotSearch({ state, commit }) {
+    const res = await api.hotSearch()
+      .catch((e: string) => console.error(e))
+    
+  }
 }
 
 export default actions

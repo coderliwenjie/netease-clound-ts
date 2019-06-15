@@ -24,8 +24,17 @@ const hotRank = () => {
     return res.data
   })
 }
+const hotSearch = () => {
+  const req = {
+    url: '/search/hot'
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
 export default {
   personalized,
   newSong,
   hotRank,
+  hotSearch
 }

@@ -8,7 +8,7 @@
       <van-tab title="推荐音乐">
       </van-tab>
       <van-tab title="热歌榜"></van-tab>
-      <van-tab title="搜索">搜索</van-tab>
+      <van-tab title="搜索"></van-tab>
     </van-tabs>
     <div class="home-view">
       <keep-alive>
@@ -41,7 +41,7 @@ export default class Home extends Vue {
   private tabs!: ['reommendMusic']
   private data() {
     return {
-      tabs: ['recommendMusic', 'hotMusic', 'newMusic'],
+      tabs: ['recommendMusic', 'hotMusic', 'search'],
     }
   }
   private async created() {
