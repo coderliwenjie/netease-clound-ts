@@ -5,4 +5,7 @@ export default {
   NEWSONG(state: any, res: any) {
     state.newSongData = res
   },
+  HOTSEARCH(state: any, res: any) {
+    state.hotSearchData = res
+  },
 }

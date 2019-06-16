@@ -26,7 +26,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
   },
 })
 export default class Recommend extends Vue {
-  @State private personalizedData!: {}
+  @State private personalizedData!: object
 }
 </script>
 

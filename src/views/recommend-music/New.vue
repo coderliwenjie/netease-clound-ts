@@ -22,7 +22,7 @@ import { State } from 'vuex-class'
 
 @Component
 export default class New extends Vue {
-  @State private newSongData!: {}
+  @State private newSongData!: object
   private mounted() {
     console.log(this.newSongData)
   }

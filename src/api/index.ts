@@ -26,7 +26,23 @@ const hotRank = () => {
 }
 const hotSearch = () => {
   const req = {
-    url: '/search/hot'
+    url: '/search/hot',
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
+const searchSuggest = (keyWord: any) => {
+  const req = {
+    url: `/search/suggest?keywords=${keyWord}&type=mobile`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
+const search = (keyWord: any) => {
+  const req = {
+    url: `/search?keywords=${keyWord}`,
   }
   return api._get(req).then((res) => {
     return res.data
@@ -36,5 +52,7 @@ export default {
   personalized,
   newSong,
   hotRank,
-  hotSearch
+  hotSearch,
+  searchSuggest,
+  search,
 }

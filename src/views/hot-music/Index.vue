@@ -1,10 +1,10 @@
 <template>
-  <div class="hot">
+  <div class="hot" v-if="hotRank">
     <div class="bg">
       <span class="rank">热歌榜</span>
       <span class="date">更新日期: {{ hotRank.playlist.updateTime | dateFomat }}</span>
     </div>
-    <div class="hot-ul" v-if="hotRank">
+    <div class="hot-ul">
       <router-link to="/" class="hot-li" v-for="(item, index) in hotRank.playlist.tracks" :key="index" v-if="index < 20">
         <div :class="['li-lf', index < 3 ? 'li-lf-red' : '']">{{ index | numFomat }}</div>
         <div class="li-rt">
@@ -39,7 +39,7 @@ import api from '../../api/index'
   },
 })
 export default class HotMusic extends Vue {
-  private hotRank!: null
+  private hotRank!: object
   private data() {
     return {
       hotRank: null,

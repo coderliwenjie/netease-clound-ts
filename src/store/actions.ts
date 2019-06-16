@@ -20,8 +20,10 @@ const actions: ActionTree<any, any> = {
   async hotSearch({ state, commit }) {
     const res = await api.hotSearch()
       .catch((e: string) => console.error(e))
-    
-  }
+    if (res) {
+      commit('HOTSEARCH', res)
+    }
+  },
 }
 
 export default actions

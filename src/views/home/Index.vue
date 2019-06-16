@@ -20,7 +20,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Action } from 'vuex-class'
 import {Tab, Tabs} from 'vant'
 
 @Component({
