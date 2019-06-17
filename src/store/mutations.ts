@@ -2,10 +2,13 @@ export default {
   PERSONALIZED(state: any, res: any) {
     state.personalizedData = res
   },
-  NEWSONG(state: any, res: any) {
+  NEW_SONG(state: any, res: any) {
     state.newSongData = res
   },
-  HOTSEARCH(state: any, res: any) {
+  HOT_SEARCH(state: any, res: any) {
     state.hotSearchData = res
+  },
+  PLAY_LIST(state: any, res: any) {
+    state.playListData = res
   },
 }

@@ -48,6 +48,14 @@ const search = (keyWord: any) => {
     return res.data
   })
 }
+const playList = (id: string) => {
+  const req = {
+    url: `/playlist/detail?id=${id}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
 export default {
   personalized,
   newSong,
@@ -55,4 +63,5 @@ export default {
   hotSearch,
   searchSuggest,
   search,
+  playList,
 }

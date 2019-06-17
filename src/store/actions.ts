@@ -14,14 +14,21 @@ const actions: ActionTree<any, any> = {
     const res = await api.newSong()
       .catch((e: string) => console.error(e))
     if (res) {
-      commit('NEWSONG', res)
+      commit('NEW_SONG', res)
     }
   },
   async hotSearch({ state, commit }) {
     const res = await api.hotSearch()
       .catch((e: string) => console.error(e))
     if (res) {
-      commit('HOTSEARCH', res)
+      commit('HOT_SEARCH', res)
+    }
+  },
+  async playList({ state, commit}, id: string) {
+    const res = await api.playList(id)
+      .catch((e: string) => console.error(e))
+    if (res) {
+      commit('PLAY_LIST', res)
     }
   },
 }
