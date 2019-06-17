@@ -123,7 +123,7 @@ export default class HotMusic extends Vue {
 
         .rt-icon {
           margin-right: 12px;
-          color: #ccc;
+          fill: #ccc;
         }
       }
     }

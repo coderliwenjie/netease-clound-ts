@@ -56,7 +56,7 @@ export default class SearchList extends Vue {
 
         .li-rt {
           margin-right: 12px;
-          color: #ccc;
+          fill: #ccc;
         }
       }
     }

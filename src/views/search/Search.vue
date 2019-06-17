@@ -62,6 +62,7 @@ export default class Search extends Vue {
       .search-icon {
         margin-right: 7px;
         font-size: 16px; /* no */
+        fill: #ccc;
       }
 
       .content {
