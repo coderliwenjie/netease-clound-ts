@@ -1,5 +1,5 @@
 <template>
-  <section class="cover-wrap" v-if="playlist">
+  <section class="cover-wrap">
     <div class="cover-bg" :style="'background-image:url(//music.163.com/api/img/blur/'+ playlist.coverImgId_str +'?param=170y170)'">
     </div>
     <div class="cover">
@@ -33,6 +33,8 @@ export default class Cover extends Vue {
 </script>
 <style lang="scss" scoped>
 .cover-wrap {
+  overflow: hidden;
+
   .cover-bg {
     position: relative;
     box-sizing: border-box;

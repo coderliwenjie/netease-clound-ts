@@ -1,6 +1,8 @@
 <template>
   <div class="play-list">
-    <cover :playlist="playlist"></cover>
+    <cover :playlist="playlist" v-if="playlist"></cover>
+    <intro :playlist="playlist" v-if="playlist"></intro>
+    <list :playlist="playlist" v-if="playlist"></list>
   </div>
 </template>
 <script lang="ts">
@@ -11,9 +13,13 @@ interface ListData {
 import { Vue, Component } from 'vue-property-decorator'
 import api from '../../api'
 import Cover from './Cover.vue'
+import Intro from './Intro.vue'
+import List from './List.vue'
 @Component({
   components: {
     Cover,
+    Intro,
+    List,
   },
 })
 export default class PlayList extends Vue {
