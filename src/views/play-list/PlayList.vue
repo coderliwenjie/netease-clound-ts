@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component
-export default class List extends Vue {
+export default class PlayList extends Vue {
   @Prop() private playlist!: object
 }
 </script>

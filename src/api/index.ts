@@ -56,6 +56,14 @@ const playList = (id: string) => {
     return res.data
   })
 }
+const playListCmt = (id: string) => {
+  const req = {
+    url: `/comment/playlist?id=${id}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
 export default {
   personalized,
   newSong,
@@ -64,4 +72,5 @@ export default {
   searchSuggest,
   search,
   playList,
+  playListCmt,
 }
