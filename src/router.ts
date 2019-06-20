@@ -36,5 +36,10 @@ export default new Router({
       name: 'playList',
       component: () => import('./views/play-list/Index.vue'),
     },
+    {
+      path: '/user',
+      name: 'user',
+      component: () => import('./views/user/Index.vue'),
+    },
   ],
 })

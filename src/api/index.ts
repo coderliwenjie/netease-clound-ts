@@ -64,6 +64,14 @@ const playListCmt = (id: string) => {
     return res.data
   })
 }
+const userDetail = (uid: string) => {
+  const req = {
+    url: `/user/detail?uid=${uid}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
 export default {
   personalized,
   newSong,
@@ -73,4 +81,5 @@ export default {
   search,
   playList,
   playListCmt,
+  userDetail,
 }

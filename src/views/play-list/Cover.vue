@@ -15,10 +15,10 @@
       </div>
       <div class="cover-rt">
         <p class="rt-name">{{ playlist.name }}</p>
-        <div class="rt-creator">
+        <router-link :to="'/user/' + playlist.creator.userId" class="rt-creator">
           <img class="creator-avatar" :src="playlist.creator.avatarUrl"/>
           <span class="creator-nickname">{{ playlist.creator.nickname }}</span>
-        </div>
+        </router-link>
       </div>
     </div>
   </section>
