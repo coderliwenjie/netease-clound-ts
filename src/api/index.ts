@@ -80,6 +80,30 @@ const userDj = (uid: string) => {
     return res.data
   })
 }
+const userPlaylist = (uid: string) => {
+  const req = {
+    url: `/user/playlist?uid=${uid}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
+const songDetail = (ids: string) => {
+  const req = {
+    url: `/song/detail?ids=${ids}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
+const lyric = (id: string) => {
+  const req = {
+    url: `/lyric?id=${id}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
 export default {
   personalized,
   newSong,
@@ -91,4 +115,7 @@ export default {
   playListCmt,
   userDetail,
   userDj,
+  userPlaylist,
+  songDetail,
+  lyric,
 }

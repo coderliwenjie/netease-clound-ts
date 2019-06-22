@@ -2,7 +2,7 @@
   <div class="wrap">
     <h3 class="list-title">歌曲列表</h3>
     <div class="list-ul">
-      <router-link to="/" class="list-li" v-for="(item, index) in playlist.tracks" :key="index">
+      <router-link :to="'/song?id=' + item.id" class="list-li" v-for="(item, index) in playlist.tracks" :key="index">
         <div class="li-lf">{{ index }}</div>
         <div class="li-rt">
           <div class="rt-music">
