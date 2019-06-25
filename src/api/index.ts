@@ -104,6 +104,38 @@ const lyric = (id: string) => {
     return res.data
   })
 }
+const songUrl = (id: string) => {
+  const req = {
+    url: `/song/url?id=${id}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
+const simiPlaylist = (id: string) => {
+  const req = {
+    url: `/simi/playlist?id=${id}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
+const simiSong = (id: string) => {
+  const req = {
+    url: `/simi/song?id=${id}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
+const songComments = (id: string) => {
+  const req = {
+    url: `/comment/music?id=${id}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
 export default {
   personalized,
   newSong,
@@ -118,4 +150,8 @@ export default {
   userPlaylist,
   songDetail,
   lyric,
+  songUrl,
+  simiPlaylist,
+  simiSong,
+  songComments,
 }
