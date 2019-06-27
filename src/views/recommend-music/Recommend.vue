@@ -6,7 +6,7 @@
         <router-link class="remd-list" :to='"/playlist?id=" + item.id' :key="index" v-if="index < 6" v-for="(item, index) in personalizedData.result">
           <div class="remd-img">
             <img class="list-img" :src='item.picUrl'>
-            <span class="play-count">{{ item.playCount | numberFixed }}</span>
+            <span class="play-count">{{ item.playCount | playCountFormat }}</span>
           </div>
           <span class="remd-title">{{ item.name }}</span>
         </router-link>
@@ -17,14 +17,7 @@
 <script lang="ts">
 import { State } from 'vuex-class'
 import { Component, Vue, Prop } from 'vue-property-decorator'
-@Component({
-  name: 'Recommend',
-  filters: {
-    numberFixed(value: number) {
-      return (value / 10000).toFixed(1) + '万'
-    },
-  },
-})
+@Component
 export default class Recommend extends Vue {
   @State private personalizedData!: object
 }

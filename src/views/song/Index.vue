@@ -1,36 +1,51 @@
 <template>
   <div class="song" v-if="songDetail" :style="{'background-image': 'url(//music.163.com/api/img/blur/'+songDetail.songs[0].al.pic_str+')'}">
     <player :lyric="lyric" :song-detail="songDetail" :song-url="songUrl"></player>
+    <album-list :simi-playlist="simiPlaylist"></album-list>
+    <comment-list :comment-list="commentList"></comment-list>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import api from '../../api'
 import Player from './Player.vue'
+import AlbumList from './AlbumList.vue'
+import CommentList from './CommentList.vue'
 @Component({
   components: {
     Player,
+    AlbumList,
+    CommentList,
   },
 })
 export default class Song extends Vue {
   private lyric!: object
   private songDetail!: object
   private songUrl!: object []
+  private simiPlaylist!: object []
+  private commentList!: object []
   private data() {
     return {
       lyric: null,
       songDetail: null,
       songUrl: [],
+      simiPlaylist: [],
+      commentList: [],
     }
   }
   private async created() {
-    Promise.all([api.songDetail(this.$route.query.id as string), api.lyric(this.$route.query.id as string),
-    api.songUrl(this.$route.query.id as string)])
+    const songDetail = api.songDetail(this.$route.query.id as string)
+    const lyric = api.lyric(this.$route.query.id as string)
+    const songUrl = api.songUrl(this.$route.query.id as string)
+    const simiPlaylist = api.simiPlaylist(this.$route.query.id as string)
+    const commentList = api.songComments(this.$route.query.id as string)
+    Promise.all([songDetail, lyric, songUrl, simiPlaylist, commentList])
       .then((res) => {
         this.songDetail = res[0]
         this.lyric = res[1]
         this.songUrl = res[2].data
-        console.log(this.songUrl)
+        this.simiPlaylist = res[3].playlists
+        this.commentList = res[4].hotComments
       })
   }
 }
