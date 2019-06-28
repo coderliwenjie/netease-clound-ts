@@ -4,6 +4,7 @@
     <intro :playlist="playlist" v-if="playlist"></intro>
     <list :playlist="playlist" v-if="playlist"></list>
     <comment-list :comments="comments" :hot-comments="hotComments" :total="total"></comment-list>
+    <list-footer txt="收藏歌单"></list-footer>
   </div>
 </template>
 <script lang="ts">
@@ -16,12 +17,14 @@ import Cover from './Cover.vue'
 import Intro from './Intro.vue'
 import List from './PlayList.vue'
 import CommentList from './CommentList.vue'
+import ListFooter from '../../components/Footer.vue'
 @Component({
   components: {
     Cover,
     Intro,
     List,
     CommentList,
+    ListFooter,
   },
 })
 export default class PlayList extends Vue {

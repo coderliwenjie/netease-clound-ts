@@ -1,5 +1,5 @@
 <template>
-  <div class="cmt">
+  <div :class="['cmt', className]">
     <router-link to="/" class="cmt-avatar">
       <img class="avatar" :src="comment.user.avatarUrl">
     </router-link>
@@ -39,6 +39,7 @@ import { Vue, Prop, Component } from 'vue-property-decorator'
 })
 export default class Comment extends Vue {
   @Prop() private comment!: object
+  @Prop() private className!: ''
 }
 </script>
 <style lang="scss" scoped>

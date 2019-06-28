@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h4>精彩评论</h4>
-    <comment v-for="(item, index) in commentList" :key="index" :comment="item"></comment>
+  <div class="comment-list">
+    <h4 class="comment-list-tl">精彩评论</h4>
+    <comment v-for="(item, index) in commentList" :key="index" :comment="item" class-name="song"></comment>
   </div>
 </template>
 <script lang="ts">
@@ -16,13 +16,19 @@ export default class CommentList extends Vue {
   @Prop() private commentList!: object []
 }
 </script>
-<style lang="scss" scoped>
-  h4 {
+<style lang="scss">
+@import '../../style/song/commentList.scss';
+
+.comment-list {
+  margin-top: 40px;
+
+  &-tl {
     padding-left: 10px;
     font-size: 16px; /* no */
     color: #fff;
     text-align: left;
   }
+}
 </style>
 
 

@@ -1,8 +1,11 @@
 <template>
   <div class="player">
-    <div class="wrap">
-      <div class="disc" @click="play">
+    <div class="wrap" @click="play">
+      <div class="disc">
         <img class="cover" :src="songDetail.songs[0].al.picUrl">
+        <svg class="icon play-icon" aria-hidden="true" v-if="!playing">
+          <use xlink:href="#icon-play"></use>
+        </svg>
       </div>
     </div>
     <div class="lyric">
@@ -13,7 +16,7 @@
         </div>
       </div>
     </div>
-    <audio :src="songUrl[0].url"></audio>
+    <audio :src="songUrl[0].url" @play="canplay(true)" autoplay preload></audio>
     <div class="link">查看完整歌词</div>
   </div>
 </template>
@@ -28,10 +31,12 @@ export default class Player extends Vue {
   private lyrics!: object []
   private translateY!: number
   private lyricPlay!: any
+  private playing!: boolean
   private data() {
     return {
       lyrics: [],
       translateY: 0,
+      playing: true,
     }
   }
   private created() {
@@ -42,9 +47,21 @@ export default class Player extends Vue {
     })
     this.lyrics = this.lyricPlay.lines
   }
+  private canplay(play: boolean) {
+    if (play) {
+      this.lyricPlay.play()
+    }
+  }
   private play() {
-    document.getElementsByTagName('audio')[0].play()
-    this.lyricPlay.play()
+    console.log(document.getElementsByTagName('audio')[0])
+    if (!this.playing) {
+      this.lyricPlay.play()
+      document.getElementsByTagName('audio')[0].play()
+    } else {
+      this.lyricPlay.togglePlay()
+      document.getElementsByTagName('audio')[0].pause()
+    }
+    this.playing = !this.playing
   }
 }
 </script>
@@ -84,6 +101,17 @@ export default class Player extends Vue {
         height: 184px;
         margin: auto;
         border-radius: 50%;
+      }
+
+      .play-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        font-size: 36px; /* no */
+        fill: #fff;
       }
     }
   }

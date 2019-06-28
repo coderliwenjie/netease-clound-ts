@@ -7,7 +7,7 @@
         <div class="li-rt">
           <div class="rt-music">
             <div class="music-name">{{item.name}}</div>
-            <div class="music-all">{{item.ar[0].name}}-{{item.al.name}}</div>
+            <div class="music-all hidden">{{item.ar[0].name}}-{{item.al.name}}</div>
           </div>
           <svg class="icon rt-icon" aria-hidden="true">
             <use xlink:href="#icon-play"></use>
@@ -64,15 +64,18 @@ export default class PlayList extends Vue {
 
         .rt-music {
           .music-name {
+            width: 300px;
             font-size: 16px; /* no */
             font-weight: 600;
             text-align: left;
           }
 
           .music-all {
+            width: 300px;
             font-size: 12px; /* no */
             font-weight: 500;
             color: #888;
+            text-align: left;
           }
         }
 
@@ -81,6 +84,13 @@ export default class PlayList extends Vue {
           fill: #ccc;
         }
       }
+    }
+
+    .hidden {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: normal;
+      white-space: nowrap;
     }
   }
 }
