@@ -2,7 +2,7 @@
   <div class="home">
     <div class="home-head">
       <span class="home-head-lf">网易云音乐</span>
-      <span class="home-head-fr">登录</span>
+      <!-- <span class="home-head-fr">登录</span> -->
     </div>
     <van-tabs title-active-color="#DD001B" :swipeable="true" @change="change">
       <van-tab title="推荐音乐">

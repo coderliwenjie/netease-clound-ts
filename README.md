@@ -24,15 +24,6 @@ npm run serve
 
 # build for production with minification
 npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 ## 网站API
-[a](https://github.com/Binaryify/NeteaseCloudMusicApi)，需自行clone启动
+[https://github.com/Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)，需自行clone启动

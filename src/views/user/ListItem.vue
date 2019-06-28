@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <router-link :to="link" class="item">
     <img class="item-lf" :src="picUrl">
     <div class="rt">
       <div class="rt-name">
@@ -8,7 +8,7 @@
       </div>
       <div class="rt-info">{{ infoTxt }}</div>
     </div>
-  </div>
+  </router-link>
 </template>
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator'
@@ -18,6 +18,7 @@ export default class ListItem extends Vue {
   @Prop() private name!: ''
   @Prop() private category!: ''
   @Prop() private infoTxt!: ''
+  @Prop() private link!: ''
 }
 </script>
 <style lang="scss" scoped>

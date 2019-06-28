@@ -4,6 +4,7 @@
     <div class="user-radio" v-if="userDj">
       <h3 class="tl">电台({{ userDj.count }})</h3>
       <list-item v-for="(item, index) in userDj.programs" :key="index"
+        link="/"
         :name="item.name"
         :pic-url="item.coverUrl"
         :category="item.channels[0]"
@@ -12,6 +13,7 @@
     <div class="user-playlist" v-if="userPlaylist">
       <h3 class="tl">歌单</h3>
       <list-item v-for="(item, index) in userPlaylist.playlist" :key="index"
+        :link="'/playList?id=' + item.id"
         :name="item.name"
         :pic-url="item.coverImgUrl"
         :info-txt="item.trackCount+'首，播放'+item.playCount+'次'"></list-item>
