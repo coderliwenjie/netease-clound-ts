@@ -5,7 +5,10 @@
 Vue + Vuex + TypeScript + Vant
 ```
 ### 运行截图
-
+![首页](https://raw.githubusercontent.com/coderliwenjie/netease-clound-ts/master/screenshots/1.jpeg)
+![歌单详情](https://raw.githubusercontent.com/coderliwenjie/netease-clound-ts/master/screenshots/2.jpeg)
+![歌曲播放](https://raw.githubusercontent.com/coderliwenjie/netease-clound-ts/master/screenshots/3.jpeg)
+![用户详情](https://raw.githubusercontent.com/coderliwenjie/netease-clound-ts/master/screenshots/4.jpeg)
 ### 项目功能
 - [x] 首页-推荐音乐
 - [x] 首页-热歌榜
