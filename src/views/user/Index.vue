@@ -1,10 +1,10 @@
 <template>
   <div class="user">
     <user-header :user-info="userInfo" v-if="userInfo"></user-header>
-    <div class="user-radio" v-if="userDj">
+    <div class="user-radio" v-if="userDj && userDj.count > 0">
       <h3 class="tl">电台({{ userDj.count }})</h3>
       <list-item v-for="(item, index) in userDj.programs" :key="index"
-        link="/"
+        :link="'/radio?id=' + item.id"
         :name="item.name"
         :pic-url="item.coverUrl"
         :category="item.channels[0]"

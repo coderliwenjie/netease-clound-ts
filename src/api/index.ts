@@ -136,6 +136,14 @@ const songComments = (id: string) => {
     return res.data
   })
 }
+const djDetail = (id: string) => {
+  const req = {
+    url: `/dj/detail?rid=${id}`,
+  }
+  return api._get(req).then((res) => {
+    return res.data
+  })
+}
 export default {
   personalized,
   newSong,
@@ -154,4 +162,5 @@ export default {
   simiPlaylist,
   simiSong,
   songComments,
+  djDetail,
 }

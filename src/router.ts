@@ -46,5 +46,10 @@ export default new Router({
       name: 'song',
       component: () => import('./views/song/Index.vue'),
     },
+    {
+      path: '/radio',
+      name: 'radio',
+      component: () => import('./views/radio/Index.vue'),
+    },
   ],
 })
