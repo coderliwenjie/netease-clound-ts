@@ -37,7 +37,7 @@ import {Tab, Tabs} from 'vant'
 })
 
 export default class Home extends Vue {
-  private tabs!: ['reommendMusic']
+  private tabs!: object[]
   private data() {
     return {
       tabs: ['recommendMusic', 'hotMusic', 'search'],
